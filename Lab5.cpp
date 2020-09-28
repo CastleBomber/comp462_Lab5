@@ -57,7 +57,7 @@ TRYAGAIN:                        // If checksum fails (come back here)
    for(int i=0; i<4; i++){ chk+= data[i]; }
    if(chk==data[4]){
       cout << "The checksum is good" << endl;
-      cout << "The temperature is " << (float)temp/10 << "ÃÂ°C" << endl;
+      cout << "The temperature is " << (float)temp/10 << "°C" << endl;
       cout << "The humidity is " << (float)humid/10 << "%" << endl;
    }
    else {
@@ -74,8 +74,6 @@ void buttonPress(void) {      // ISR on button press - not debounced
 
    getTemperature();
 }
-
-
 
 int main() {                             // must be run as root
    wiringPiSetupGpio();                  // use the GPIO numbering
