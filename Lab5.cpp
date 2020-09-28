@@ -79,7 +79,7 @@ void buttonPress(void) {      // ISR on button press - not debounced
    } else {
      pwmWrite(PWM_SERVO, LEFT);
    }
-}
+ }
 
 int main() {                             // must be run as root
    wiringPiSetupGpio();                  // use the GPIO numbering
@@ -93,6 +93,7 @@ int main() {                             // must be run as root
    while(sweeping) {
       for(int i=0; i<10000; i++) {       // infinite loop
          usleep(10000);
+       }
    }
    return 0;
 }
