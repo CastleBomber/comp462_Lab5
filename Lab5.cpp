@@ -65,14 +65,14 @@ TRYAGAIN:                        // If checksum fails (come back here)
       usleep(2000000);   // delay for 1-2 seconds between readings
       goto TRYAGAIN;
    }
-   return 0;
+   return ((float)temp/10);
 }
 
 void buttonPress(void) {      // ISR on button press - not debounced
    cout << "Button was pressed -- finishing sweep." << endl;
    sweeping = false;          // the while() loop should end soon
-
-   getTemperature();
+   cout << "Testing for the goods" << endl;
+   cout << getTemperature() << endl;
 }
 
 int main() {                             // must be run as root
