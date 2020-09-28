@@ -91,7 +91,7 @@ int main() {                             // must be run as root
    pwmSetClock(384);                     // gives 50Hz precisely
 
    while(sweeping) {
-      for(int i=0; i<10000; i++) {       // infinite loop
+      for(int i=0; i<100000; i++) {       // infinite loop
          usleep(10000);
        }
    }
