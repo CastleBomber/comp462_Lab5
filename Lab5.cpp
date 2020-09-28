@@ -90,17 +90,9 @@ int main() {                             // must be run as root
    pwmSetRange(1000);                    // 1000 steps
    pwmSetClock(384);                     // gives 50Hz precisely
 
-   cout << "Sweeping the servo until the button is pressed" << endl;
    while(sweeping) {
-      for(int i=LEFT; i<RIGHT; i++) {       // Fade fully on
-         pwmWrite(PWM_SERVO, i);
+      for(int i=0; i<10000; i++) {       // infinite loop
          usleep(10000);
-      }
-      for(int i=RIGHT; i>=LEFT; i--) {        // Fade fully off
-         pwmWrite(PWM_SERVO, i);
-         usleep(10000);
-      }
    }
-   cout << "Program has finished gracefully - servo centred" << endl;
    return 0;
 }
