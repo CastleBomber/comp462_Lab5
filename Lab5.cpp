@@ -72,13 +72,12 @@ TRYAGAIN:                        // If checksum fails (come back here)
 void buttonPress(void) {      // ISR on button press - not debounced
    cout << "Button was pressed -- finishing sweep." << endl;
    sweeping = false;          // the while() loop should end soon
-
    int checkWhereMotorShouldGo = getTemperature();
 
    if (checkWhereMotorShouldGo >= Room_Temp_Threshold){
      pwmWrite(PWM_SERVO, RIGHT);
    } else {
-     pwmWrite(PWM_SERVO, LEFT)
+     pwmWrite(PWM_SERVO, LEFT);
    }
 }
 
