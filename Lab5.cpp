@@ -101,7 +101,6 @@ int main() {                             // must be run as root
          usleep(10000);
       }
    }
-   pwmWrite(PWM_SERVO, CENTER);
    cout << "Program has finished gracefully - servo centred" << endl;
    return 0;
 }
