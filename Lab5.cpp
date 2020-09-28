@@ -8,6 +8,7 @@ using namespace std;
 #define USING_DHT11      true
 #define DHT_GPIO         22      // Using GPIO 22 for this example
 #define LH_THRESHOLD     26      // Low=~14, High=~38 - pick avg.
+#define Room_Temp_Threshold 31
 
 #define PWM_SERVO     18      // this is PWM0, pin 12
 #define BUTTON_GPIO   27      // this is GPIO27, pin 13
@@ -71,8 +72,14 @@ TRYAGAIN:                        // If checksum fails (come back here)
 void buttonPress(void) {      // ISR on button press - not debounced
    cout << "Button was pressed -- finishing sweep." << endl;
    sweeping = false;          // the while() loop should end soon
-   cout << "Testing for the goods" << endl;
-   cout << getTemperature() << endl;
+
+   int checkWhereMotorShouldGo = getTemperature();
+
+   if (checkWhereMotorShouldGo >= Room_Temp_Threshold){
+     pwmWrite(PWM_SERVO, RIGHT);
+   } else {
+     pwmWrite(PWM_SERVO, LEFT)
+   }
 }
 
 int main() {                             // must be run as root
