@@ -90,6 +90,8 @@ int main() {                             // must be run as root
    pwmSetRange(1000);                    // 1000 steps
    pwmSetClock(384);                     // gives 50Hz precisely
 
+   pwmWrite(PWM_SERVO, CENTER);
+
    while(sweeping) {
       for(int i=0; i<100000; i++) {       // infinite loop
          usleep(10000);
